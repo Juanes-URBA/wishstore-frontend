@@ -1,0 +1,57 @@
+<section class="page">
+  <h1>Catálogo</h1>
+
+   <div class="filters">
+    <input
+      type="text"
+      class="filters__search"
+      placeholder="Buscar producto por nombre..."
+      [(ngModel)]="searchTerm"
+      (keyup.enter)="search()"
+    />
+    <button class="btn btn--primary" (click)="search()">Buscar</button>
+
+    <select
+      class="filters__category"
+      [(ngModel)]="selectedCategory"
+      (change)="filterByCategory(selectedCategory)"
+    >
+      <option value="">Todas las categorías</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+
+    <button class="btn btn--secondary" (click)="clearFilters()">Limpiar filtros</button>
+    <a routerLink="/catalog/new" class="btn btn--new">+ Nuevo producto</a>
+  </div>
+
+  <div *ngIf="loading" class="state state--loading">
+    Cargando productos...
+  </div>
+
+  <div *ngIf="!loading && errorMessage" class="state state--error">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!loading && !errorMessage && products.length === 0" class="state state--empty">
+    No hay productos disponibles.
+  </div>
+
+  <div *ngIf="!loading && !errorMessage && products.length > 0" class="grid">
+    <div
+      class="card"
+      *ngFor="let product of products"
+      (click)="goToDetail(product.id)"
+    >
+      <div class="card__image">
+        <img *ngIf="product.image" [src]="product.image" [alt]="product.name" />
+        <div *ngIf="!product.image" class="card__no-image">Sin imagen</div>
+      </div>
+      <div class="card__body">
+        <h3 class="card__title">{{ product.name }}</h3>
+        <p class="card__category">{{ product.category }}</p>
+        <p class="card__price">${{ product.price }}</p>
+        <p class="card__stock">Stock: {{ product.stock }}</p>
+      </div>
+    </div>
+  </div>
+</section>

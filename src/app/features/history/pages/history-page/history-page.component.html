@@ -1,0 +1,34 @@
+<section class="page">
+  <h1>Historial</h1>
+
+  <div *ngIf="loading" class="state state--loading">
+    Cargando historial...
+  </div>
+
+  <div *ngIf="!loading && errorMessage" class="state state--error">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!loading && !errorMessage && events.length === 0" class="state state--empty">
+    No hay eventos en el historial.
+  </div>
+
+  <table *ngIf="!loading && !errorMessage && events.length > 0" class="history-table">
+    <thead>
+      <tr>
+        <th>Acción</th>
+        <th>Descripción</th>
+        <th>Producto ID</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of events">
+        <td>{{ event.action }}</td>
+        <td>{{ event.description }}</td>
+        <td>{{ event.productId }}</td>
+        <td>{{ event.createdAt | date:'short' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

@@ -1,0 +1,220 @@
+.page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+  }
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: var(--card-bg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--card-shadow);
+
+  &__search {
+    flex: 1;
+    min-width: 220px;
+    padding: 0.65rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    }
+  }
+
+  &__category {
+    padding: 0.65rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    background-color: #ffffff;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+  }
+}
+
+.btn {
+  padding: 0.65rem 1.25rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &--primary {
+    background: linear-gradient(120deg, var(--color-primary), var(--color-primary-dark));
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+  }
+
+  &--secondary {
+    background-color: #eef0f7;
+    color: #374151;
+
+    &:hover {
+      background-color: #e2e5f1;
+    }
+  }
+
+  &--new {
+    background: linear-gradient(120deg, var(--color-accent), #0d9488);
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.35);
+  }
+
+  &--danger {
+    background-color: var(--color-danger-bg);
+    color: var(--color-danger-text);
+
+    &:hover {
+      background-color: #fecaca;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.state {
+  padding: 1.75rem;
+  text-align: center;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+
+  &--loading {
+    color: var(--text-muted);
+    background-color: #eef2ff;
+  }
+
+  &--error {
+    background-color: var(--color-danger-bg);
+    color: var(--color-danger-text);
+  }
+
+  &--empty {
+    color: var(--text-muted);
+    background-color: #f3f4f6;
+  }
+
+  &--success {
+    background-color: var(--color-success-bg);
+    color: var(--color-success-text);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  background-color: var(--card-bg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(99, 102, 241, 0.06);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  &--new {
+    background: linear-gradient(120deg, var(--color-accent), #0d9488);
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__image {
+    width: 100%;
+    height: 170px;
+    background: linear-gradient(135deg, #eef2ff, #fdf4ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__no-image {
+    color: #a5adc4;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  &__body {
+    padding: 1.1rem;
+  }
+
+  &__title {
+    margin: 0 0 0.4rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-main);
+  }
+
+  &__category {
+    margin: 0 0 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  &__price {
+    margin: 0 0 0.3rem;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-secondary);
+  }
+
+  &__stock {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+}

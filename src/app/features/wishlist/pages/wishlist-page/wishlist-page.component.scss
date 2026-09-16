@@ -1,0 +1,137 @@
+.page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.state {
+  padding: 1.75rem;
+  text-align: center;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+
+  &--loading {
+    color: var(--text-muted);
+    background-color: #eef2ff;
+  }
+
+  &--error {
+    background-color: var(--color-danger-bg);
+    color: var(--color-danger-text);
+  }
+
+  &--empty {
+    color: var(--text-muted);
+    background-color: #f3f4f6;
+  }
+
+  &--success {
+    background-color: var(--color-success-bg);
+    color: var(--color-success-text);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(99, 102, 241, 0.06);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  &__image {
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(135deg, #eef2ff, #fdf4ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__no-image {
+    color: #a5adc4;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  &__body {
+    padding: 1.1rem;
+  }
+
+  &__title {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  &__price {
+    margin: 0 0 0.85rem;
+    font-weight: 800;
+    color: var(--color-secondary);
+    font-size: 1.1rem;
+  }
+}
+
+.card__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn {
+  padding: 0.55rem 1rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &--danger {
+    background-color: var(--color-danger-bg);
+    color: var(--color-danger-text);
+
+    &:hover {
+      background-color: #fecaca;
+    }
+  }
+
+  &--secondary {
+    background-color: #eef0f7;
+    color: #111827;
+
+    &:hover {
+      background-color: #e2e5f1;
+    }
+  }
+}
