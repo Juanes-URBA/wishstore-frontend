@@ -1,3 +1,17 @@
-.page {
-  padding: 2rem;
+.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer; // ← línea nueva
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  // ... el resto queda igual
 }

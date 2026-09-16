@@ -1,4 +1,26 @@
 <section class="page">
-  <h1>Detalle de producto</h1>
-  <p>Aquí se mostrará el detalle del producto (Avance 2).</p>
+  <a routerLink="/catalog" class="back-link">← Volver al catálogo</a>
+
+  <div *ngIf="loading" class="state state--loading">
+    Cargando producto...
+  </div>
+
+  <div *ngIf="!loading && errorMessage" class="state state--error">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!loading && !errorMessage && product" class="detail">
+    <div class="detail__image">
+      <img *ngIf="product.image" [src]="product.image" [alt]="product.name" />
+      <div *ngIf="!product.image" class="detail__no-image">Sin imagen</div>
+    </div>
+
+    <div class="detail__info">
+      <h1>{{ product.name }}</h1>
+      <p class="detail__category">{{ product.category }}</p>
+      <p class="detail__price">${{ product.price }}</p>
+      <p class="detail__stock">Stock disponible: {{ product.stock }}</p>
+      <p class="detail__description">{{ product.description }}</p>
+    </div>
+  </div>
 </section>
