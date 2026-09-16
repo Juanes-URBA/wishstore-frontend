@@ -21,6 +21,43 @@
       <p class="detail__price">${{ product.price }}</p>
       <p class="detail__stock">Stock disponible: {{ product.stock }}</p>
       <p class="detail__description">{{ product.description }}</p>
+
+      <button
+        class="btn btn--primary"
+        (click)="addToWishlist()"
+        [disabled]="addingToWishlist"
+      >
+        {{ addingToWishlist ? 'Agregando...' : 'Agregar a wishlist' }}
+      </button>
+            <button
+        class="btn btn--primary"
+        (click)="addToWishlist()"
+        [disabled]="addingToWishlist"
+      >
+        {{ addingToWishlist ? 'Agregando...' : 'Agregar a wishlist' }}
+      </button>
+
+      <a [routerLink]="['/product', product.id, 'edit']" class="btn btn--secondary">
+        Editar producto
+      </a>
+
+      <p
+        *ngIf="wishlistMessage"
+        class="wishlist-msg"
+        [class.wishlist-msg--success]="wishlistMessageType === 'success'"
+        [class.wishlist-msg--error]="wishlistMessageType === 'error'"
+      >
+        {{ wishlistMessage }}
+      </p>
+
+      <p
+        *ngIf="wishlistMessage"
+        class="wishlist-msg"
+        [class.wishlist-msg--success]="wishlistMessageType === 'success'"
+        [class.wishlist-msg--error]="wishlistMessageType === 'error'"
+      >
+        {{ wishlistMessage }}
+      </p>
     </div>
   </div>
 </section>

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
-import { ProductResponse } from '../models/product.model';
+import { ProductResponse, ProductRequest } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +29,13 @@ export class ProductService {
 
   getByCategory(category: string): Observable<ProductResponse[]> {
     return this.http.get<ProductResponse[]>(`${this.apiUrl}/category/${category}`);
+  }
+
+  createProduct(request: ProductRequest): Observable<ProductResponse> {
+    return this.http.post<ProductResponse>(this.apiUrl, request);
+  }
+
+  updateProduct(id: number, request: ProductRequest): Observable<ProductResponse> {
+    return this.http.put<ProductResponse>(`${this.apiUrl}/${id}`, request);
   }
 }

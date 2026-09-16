@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
-
-
 
 @NgModule({
   declarations: [
@@ -12,4 +11,4 @@ import { HistoryPageComponent } from './pages/history-page/history-page.componen
     CommonModule
   ]
 })
-export class HistoryModule { }
+export class HistoryModule {}
