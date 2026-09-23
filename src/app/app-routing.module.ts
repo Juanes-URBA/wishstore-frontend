@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'product/:id', component: ProductDetailComponent },
   { path: 'wishlist', component: WishlistPageComponent },
   { path: 'history', component: HistoryPageComponent },
+  { path: 'login', loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule) },
   { path: '**', redirectTo: 'catalog' }
 ];
 
