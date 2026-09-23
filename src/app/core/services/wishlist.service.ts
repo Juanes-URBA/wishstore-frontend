@@ -24,4 +24,8 @@ export class WishlistService {
   removeFromWishlist(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+
+  update(id: number, productId: number): Observable<WishlistResponse> {
+    return this.http.put<WishlistResponse>(`${this.apiUrl}/${id}`, { productId });
+  }
 }

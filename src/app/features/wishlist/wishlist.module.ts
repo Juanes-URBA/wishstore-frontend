@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { WishlistPageComponent } from './pages/wishlist-page/wishlist-page.component';
 
@@ -10,7 +10,7 @@ import { WishlistPageComponent } from './pages/wishlist-page/wishlist-page.compo
   ],
   imports: [
     CommonModule,
-    RouterModule
+    FormsModule
   ]
 })
 export class WishlistModule {}
