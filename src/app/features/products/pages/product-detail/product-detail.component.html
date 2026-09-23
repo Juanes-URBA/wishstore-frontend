@@ -29,26 +29,6 @@
       >
         {{ addingToWishlist ? 'Agregando...' : 'Agregar a wishlist' }}
       </button>
-            <button
-        class="btn btn--primary"
-        (click)="addToWishlist()"
-        [disabled]="addingToWishlist"
-      >
-        {{ addingToWishlist ? 'Agregando...' : 'Agregar a wishlist' }}
-      </button>
-
-      <a [routerLink]="['/product', product.id, 'edit']" class="btn btn--secondary">
-        Editar producto
-      </a>
-
-      <p
-        *ngIf="wishlistMessage"
-        class="wishlist-msg"
-        [class.wishlist-msg--success]="wishlistMessageType === 'success'"
-        [class.wishlist-msg--error]="wishlistMessageType === 'error'"
-      >
-        {{ wishlistMessage }}
-      </p>
 
       <p
         *ngIf="wishlistMessage"

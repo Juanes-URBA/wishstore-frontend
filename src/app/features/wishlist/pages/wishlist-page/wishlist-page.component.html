@@ -22,20 +22,52 @@
       <div class="card__image">
         <img *ngIf="item.product?.image" [src]="item.product?.image" [alt]="item.product?.name" />
         <div *ngIf="!item.product?.image" class="card__no-image">Sin imagen</div>
+        <span *ngIf="item.wishlist.outOfStock" class="badge badge--danger">Sin stock</span>
       </div>
       <div class="card__body">
         <h3 class="card__title">{{ item.product?.name || 'Producto no disponible' }}</h3>
         <p class="card__price" *ngIf="item.product">${{ item.product.price }}</p>
         <div class="card__actions">
-          <button
-            *ngIf="item.product"
-            class="btn btn--secondary"
-            (click)="edit(item.product.id)"
-          >
-            Editar
+          <button class="btn btn--secondary" (click)="openChangeProductModal(item)">
+            Cambiar producto
           </button>
           <button class="btn btn--danger" (click)="remove(item.wishlist.id)">Eliminar</button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal "Cambiar producto" -->
+  <div *ngIf="modalOpen" class="modal-overlay" (click)="closeModal()">
+    <div class="modal" (click)="$event.stopPropagation()">
+      <h2>Cambiar producto</h2>
+      <p class="modal__hint">Elige el nuevo producto para este ítem de tu wishlist.</p>
+
+      <select
+        class="modal__select"
+        [(ngModel)]="modalSelectedProductId"
+        name="modalProduct"
+      >
+        <option *ngFor="let product of allProducts" [ngValue]="product.id">
+          {{ product.name }} — ${{ product.price }}
+        </option>
+      </select>
+
+      <div *ngIf="modalError" class="state state--error">
+        {{ modalError }}
+      </div>
+
+      <div class="modal__actions">
+        <button
+          class="btn btn--primary"
+          (click)="confirmChangeProduct()"
+          [disabled]="modalSaving || !modalSelectedProductId"
+        >
+          {{ modalSaving ? 'Guardando...' : 'Confirmar' }}
+        </button>
+        <button class="btn btn--secondary" (click)="closeModal()" [disabled]="modalSaving">
+          Cancelar
+        </button>
       </div>
     </div>
   </div>

@@ -8,4 +8,5 @@ export interface WishlistResponse {
   userId: number;
   productId: number;
   createdAt: string;
+  outOfStock: boolean;
 }
